@@ -6,4 +6,5 @@
     <string name="start_label">What do you want to use?</string>
     <string name="start_btn_room">ROOM</string>
     <string name="exit">Exit</string>
+    <string name="toolbar_title">Notes</string>
 </resources>
