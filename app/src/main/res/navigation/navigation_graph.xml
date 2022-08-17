@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.rudimentum.notetaking.screens.MainFragment"
+        android:name="com.rudimentum.notetaking.screens.main.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
