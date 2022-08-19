@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.rudimentum.notetaking.R
 import com.rudimentum.notetaking.databinding.FragmentMainBinding
-import com.rudimentum.notetaking.utilities.APP_ACTIVITY
 
 class MainFragment : Fragment() {
 
@@ -32,7 +32,7 @@ class MainFragment : Fragment() {
     private fun initialization() {
         mViewModel = ViewModelProvider(this).get(MainFragmentViewModel::class.java)
         mBinding.fabAddNote.setOnClickListener {
-            APP_ACTIVITY.mNavController.navigate(R.id.action_mainFragment_to_addNewNoteFragment)
+            findNavController().navigate(R.id.action_mainFragment_to_addNewNoteFragment)
         }
     }
 

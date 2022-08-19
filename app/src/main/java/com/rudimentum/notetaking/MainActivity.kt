@@ -6,7 +6,6 @@ import androidx.appcompat.widget.Toolbar
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.rudimentum.notetaking.databinding.ActivityMainBinding
-import com.rudimentum.notetaking.utilities.APP_ACTIVITY
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,8 +19,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
-
-        APP_ACTIVITY = this
 
         mToolbar = mBinding.toolbar
         mNavController = Navigation.findNavController(this, R.id.navHostFragment)
