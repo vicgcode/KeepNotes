@@ -7,4 +7,5 @@
     <string name="start_btn_room">ROOM</string>
     <string name="exit">Exit</string>
     <string name="toolbar_title">Notes</string>
+    <string name="toast_message_empty_name_note">Please enter name of your note!</string>
 </resources>
