@@ -9,13 +9,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.rudimentum.notetaking.R
 import com.rudimentum.notetaking.models.AppNote
 
-class MainNotesListAdapter: RecyclerView.Adapter<MainNotesListAdapter.MainHolder>() {
+class MainNotesListAdapter(val onClick: (AppNote) -> Unit): RecyclerView.Adapter<MainNotesListAdapter.MainHolder>() {
 
     private var mNotesList = emptyList<AppNote>()
 
     class MainHolder(view: View) : RecyclerView.ViewHolder(view) {
         val nameNote: TextView = view.findViewById(R.id.itemNoteName)
         val textNote: TextView = view.findViewById(R.id.itemNoteText)
+    }
+
+    override fun onViewDetachedFromWindow(holder: MainHolder) {
+        super.onViewDetachedFromWindow(holder)
+        holder.itemView.setOnClickListener(null)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
@@ -28,6 +33,10 @@ class MainNotesListAdapter: RecyclerView.Adapter<MainNotesListAdapter.MainHolder
     override fun onBindViewHolder(holder: MainHolder, position: Int) {
         holder.nameNote.text = mNotesList[position].name
         holder.textNote.text = mNotesList[position].text
+
+        holder.itemView.setOnClickListener{
+            onClick(mNotesList[position])
+        }
     }
 
     override fun getItemCount(): Int = mNotesList.size

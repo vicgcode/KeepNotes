@@ -36,20 +36,34 @@ class MainFragment : Fragment() {
     }
 
     private fun initialization() {
-        mNotesListAdapter = MainNotesListAdapter()
+        // initialize recyclerview
         mRecyclerViewNotesList = mBinding.rvNotesList
+        // initialize adapter
+        mNotesListAdapter = MainNotesListAdapter(
+            onClick = { note -> openNote(note)}
+        )
         mRecyclerViewNotesList.adapter = mNotesListAdapter
+        // initialize observer
         mObserverList = Observer {
             // create list and add notes to up of list
             val listOfNotes = it.asReversed()
             mNotesListAdapter.setList(listOfNotes)
         }
-
+        // initialize view model
         mViewModel = ViewModelProvider(this).get(MainFragmentViewModel::class.java)
         mViewModel.allNotes.observe(this, mObserverList)
+
+        // set click listener for fab
         mBinding.fabAddNote.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_addNewNoteFragment)
         }
+    }
+
+    // create bundle of serializable AppNote and open in NoteFragment
+    private fun openNote(note: AppNote) {
+        val bundle = Bundle()
+        bundle.putSerializable(R.string.bundle_key_note.toString(), note)
+        findNavController().navigate(R.id.action_mainFragment_to_noteFragment, bundle)
     }
 
     override fun onDestroyView() {
