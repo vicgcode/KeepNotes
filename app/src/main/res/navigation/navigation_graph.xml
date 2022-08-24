@@ -11,7 +11,9 @@
         tools:layout="@layout/fragment_start" >
         <action
             android:id="@+id/action_startFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/navigation_graph" />
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
@@ -20,7 +22,9 @@
         tools:layout="@layout/fragment_main" >
         <action
             android:id="@+id/action_mainFragment_to_startFragment"
-            app:destination="@id/startFragment" />
+            app:destination="@id/startFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/navigation_graph" />
         <action
             android:id="@+id/action_mainFragment_to_addNewNoteFragment"
             app:destination="@id/addNewNoteFragment" />
@@ -35,7 +39,9 @@
         tools:layout="@layout/fragment_add_new_note" >
         <action
             android:id="@+id/action_addNewNoteFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/navigation_graph" />
     </fragment>
     <fragment
         android:id="@+id/noteFragment"
@@ -44,6 +50,8 @@
         tools:layout="@layout/fragment_note" >
         <action
             android:id="@+id/action_noteFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/navigation_graph" />
     </fragment>
 </navigation>
