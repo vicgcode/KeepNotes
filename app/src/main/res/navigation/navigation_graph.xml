@@ -12,6 +12,8 @@
         <action
             android:id="@+id/action_startFragment_to_mainFragment"
             app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left"
             app:launchSingleTop="true"
             app:popUpTo="@id/navigation_graph" />
     </fragment>
@@ -23,14 +25,20 @@
         <action
             android:id="@+id/action_mainFragment_to_startFragment"
             app:destination="@id/startFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_right"
             app:launchSingleTop="true"
             app:popUpTo="@id/navigation_graph" />
         <action
             android:id="@+id/action_mainFragment_to_addNewNoteFragment"
-            app:destination="@id/addNewNoteFragment" />
+            app:destination="@id/addNewNoteFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left" />
         <action
             android:id="@+id/action_mainFragment_to_noteFragment"
-            app:destination="@id/noteFragment" />
+            app:destination="@id/noteFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left" />
     </fragment>
     <fragment
         android:id="@+id/addNewNoteFragment"
@@ -40,6 +48,8 @@
         <action
             android:id="@+id/action_addNewNoteFragment_to_mainFragment"
             app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_right"
             app:launchSingleTop="true"
             app:popUpTo="@id/navigation_graph" />
     </fragment>
@@ -51,6 +61,8 @@
         <action
             android:id="@+id/action_noteFragment_to_mainFragment"
             app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_right"
             app:launchSingleTop="true"
             app:popUpTo="@id/navigation_graph" />
     </fragment>
