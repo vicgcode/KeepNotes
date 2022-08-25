@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.rudimentum.notetaking.R
 import com.rudimentum.notetaking.databinding.FragmentStartBinding
+import com.rudimentum.notetaking.utilities.AppPreference
 import com.rudimentum.notetaking.utilities.TYPE_ROOM
 
 class StartFragment : Fragment() {
@@ -27,13 +28,23 @@ class StartFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        initialization()
+        // initialization view model
+        mViewModel = ViewModelProvider(this).get(StartFragmentViewModel::class.java)
+
+        if (AppPreference.getInitUser()) {
+            mViewModel.initDatabase(AppPreference.getTypeDatabase()) {
+                findNavController().navigate(R.id.action_startFragment_to_mainFragment)
+            }
+        } else {
+            selectAndInitDatabase()
+        }
     }
 
-    private fun initialization() {
-        mViewModel = ViewModelProvider(this).get(StartFragmentViewModel::class.java)
+    private fun selectAndInitDatabase() {
         mBinding.btnRoom.setOnClickListener {
             mViewModel.initDatabase(TYPE_ROOM) {
+                AppPreference.setInitUser(true)
+                AppPreference.setTypeDatabase(TYPE_ROOM)
                 findNavController().navigate(R.id.action_startFragment_to_mainFragment)
             }
         }
