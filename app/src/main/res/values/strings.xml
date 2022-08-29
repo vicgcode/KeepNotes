@@ -2,11 +2,17 @@
     <string name="app_name">NoteTaking</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="btn_add_note">Add</string>
     <string name="start_label">What do you want to use?</string>
     <string name="start_btn_room">ROOM</string>
-    <string name="exit">Exit</string>
-    <string name="toolbar_title">Notes</string>
     <string name="toast_message_empty_name_note">Please enter name of your note!</string>
+    <string name="hint_title_note">Title</string>
+    <string name="hint_text_note">Start typing</string>
+
+    <string name="btn_add_note">Add</string>
+    <string name="exit">Exit</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+
     <string name="bundle_key_note">note</string>
+    <string name="toolbar_title">Notes</string>
 </resources>
