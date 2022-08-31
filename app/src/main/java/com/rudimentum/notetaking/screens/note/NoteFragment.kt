@@ -1,6 +1,7 @@
 package com.rudimentum.notetaking.screens.note
 
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import android.view.*
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
@@ -65,6 +66,7 @@ class NoteFragment : Fragment() {
         // fill textViews from current note
         mBinding.noteName.text = mCurrentNote.name
         mBinding.noteText.text = mCurrentNote.text
+        mBinding.noteText.movementMethod = ScrollingMovementMethod()
         // initialize view model
         mViewModel = ViewModelProvider(this).get(NoteFragmentViewModel::class.java)
     }
