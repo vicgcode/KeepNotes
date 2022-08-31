@@ -7,4 +7,15 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="light_blue">#8FD8D8</color>
+    <color name="deep_space_sparkle">#4A646C</color>
+    <color name="onyx">#353839</color>
+    <color name="outer_space">#2D383A</color>
+
+    <color name="timberwolf">#D9D6CF</color>
+    <color name="gold_1">#92926E</color>
+    <color name="gold_2">#E6BE8A</color>
+    <color name="silver">#C9C0BB</color>
+    <color name="eerie_black">#1B1B1B</color>
 </resources>

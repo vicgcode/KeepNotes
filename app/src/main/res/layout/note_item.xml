@@ -15,7 +15,6 @@
         <TextView
             android:id="@+id/itemNoteName"
             tools:text="Name note"
-            android:textColor="@color/design_default_color_primary_dark"
             android:textStyle="bold"
             android:textSize="@dimen/app_large_text"
             android:gravity="center"
@@ -33,7 +32,6 @@
             tools:text="Note text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/design_default_color_primary"
             android:textSize="@dimen/app_standard_text"
             android:maxLines="3"
             android:ellipsize="end"
