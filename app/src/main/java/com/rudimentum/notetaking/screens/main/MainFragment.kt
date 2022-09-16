@@ -12,6 +12,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.rudimentum.notetaking.R
 import com.rudimentum.notetaking.databinding.FragmentMainBinding
 import com.rudimentum.notetaking.models.AppNote
+import com.rudimentum.notetaking.screens.start.StartFragmentViewModel
+import com.rudimentum.notetaking.utilities.AppPreference
+import com.rudimentum.notetaking.utilities.TYPE_ROOM
 
 class MainFragment : Fragment() {
 
@@ -32,10 +35,31 @@ class MainFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        initialization()
+        // initialize view model
+        mViewModel = ViewModelProvider(this).get(MainFragmentViewModel::class.java)
+
+        if (AppPreference.getInitUser()) {
+            mViewModel.initDatabase(AppPreference.getTypeDatabase()) {}
+        } else {
+            initDatabase()
+        }
+
+        addRecyclerViewAdapter()
+        addObserver()
+        // set click listener for fab
+        mBinding.fabAddNote.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_addNewNoteFragment)
+        }
     }
 
-    private fun initialization() {
+    private fun initDatabase() {
+        mViewModel.initDatabase(TYPE_ROOM) {
+            AppPreference.setInitUser(true)
+            AppPreference.setTypeDatabase(TYPE_ROOM)
+        }
+    }
+
+    private fun addRecyclerViewAdapter() {
         // initialize recyclerview
         mRecyclerViewNotesList = mBinding.rvNotesList
         // initialize adapter
@@ -43,20 +67,17 @@ class MainFragment : Fragment() {
             onClick = { note -> openNote(note)}
         )
         mRecyclerViewNotesList.adapter = mNotesListAdapter
+    }
+
+    private fun addObserver() {
         // initialize observer
         mObserverList = Observer {
             // create list and add notes to up of list
             val listOfNotes = it.asReversed()
             mNotesListAdapter.setList(listOfNotes)
         }
-        // initialize view model
-        mViewModel = ViewModelProvider(this).get(MainFragmentViewModel::class.java)
-        mViewModel.allNotes.observe(this, mObserverList)
 
-        // set click listener for fab
-        mBinding.fabAddNote.setOnClickListener {
-            findNavController().navigate(R.id.action_mainFragment_to_addNewNoteFragment)
-        }
+        mViewModel.getAllNotes().observe(this, mObserverList)
     }
 
     // create bundle of serializable AppNote and open in NoteFragment
@@ -69,7 +90,7 @@ class MainFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-        mViewModel.allNotes.removeObserver(mObserverList)
+        mViewModel.getAllNotes().removeObserver(mObserverList)
         mRecyclerViewNotesList.adapter = null
     }
 }
