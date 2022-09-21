@@ -12,10 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.rudimentum.notetaking.R
 import com.rudimentum.notetaking.databinding.FragmentMainBinding
 import com.rudimentum.notetaking.models.AppNote
-import com.rudimentum.notetaking.screens.start.StartFragmentViewModel
 import com.rudimentum.notetaking.utilities.AppPreference
 import com.rudimentum.notetaking.utilities.TYPE_ROOM
-
 class MainFragment : Fragment() {
 
     private var _binding: FragmentMainBinding? = null
