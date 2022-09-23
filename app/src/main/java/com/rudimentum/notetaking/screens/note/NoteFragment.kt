@@ -51,6 +51,10 @@ class NoteFragment : Fragment() {
                         }
                         true
                     }
+                    R.id.btnEdit -> {
+                        findNavController().navigate(R.id.action_noteFragment_to_editNoteFragment)
+                        true
+                    }
                     else -> false
                 }
             }

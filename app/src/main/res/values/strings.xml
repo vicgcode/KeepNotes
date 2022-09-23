@@ -11,6 +11,7 @@
     <string name="exit">Exit</string>
     <string name="save">Save</string>
     <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
 
     <string name="bundle_key_note">note</string>
     <string name="toolbar_title">Notes</string>
