@@ -52,7 +52,7 @@ class NoteFragment : Fragment() {
                         true
                     }
                     R.id.btnEdit -> {
-                        findNavController().navigate(R.id.action_noteFragment_to_editNoteFragment)
+                        openNote(mCurrentNote)
                         true
                     }
                     else -> false
@@ -73,6 +73,12 @@ class NoteFragment : Fragment() {
         mBinding.noteText.movementMethod = ScrollingMovementMethod()
         // initialize view model
         mViewModel = ViewModelProvider(this).get(NoteFragmentViewModel::class.java)
+    }
+
+    private fun openNote(note: AppNote) {
+        val bundle = Bundle()
+        bundle.putSerializable(R.string.bundle_key_note.toString(), note)
+        findNavController().navigate(R.id.action_noteFragment_to_editNoteFragment, bundle)
     }
 
     override fun onDestroyView() {
