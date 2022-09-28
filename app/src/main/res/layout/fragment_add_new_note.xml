@@ -8,24 +8,32 @@
 
     <EditText
         android:id="@+id/inputNameNote"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/editText"
         android:background="@null"
         android:hint="@string/hint_title_note"
-        tools:ignore="LabelFor"
-        style="@style/editText" />
+        android:minHeight="48dp"
+        android:textColor="@color/eerie_black"
+        android:textColorHint="@color/text_hint"
+        android:textSize="@dimen/app_large_text"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="LabelFor" />
 
     <EditText
-        android:layout_height="wrap_content"
         android:id="@+id/inputTextNote"
-        app:layout_constraintTop_toBottomOf="@id/inputNameNote"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:inputType="textMultiLine"
+        style="@style/editText"
         android:background="@null"
         android:hint="@string/hint_text_note"
-        tools:ignore="LabelFor"
-        style="@style/editText" />
+        android:inputType="textMultiLine"
+        android:minHeight="48dp"
+        android:textColor="@color/eerie_black"
+        android:textColorHint="@color/text_hint"
+        android:textSize="@dimen/app_standard_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inputNameNote"
+        tools:ignore="LabelFor,TextContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

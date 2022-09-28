@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screens.edit.EditNoteFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".screens.add_new_note.AddNewNoteFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <EditText
+        android:id="@+id/editNameNote"
+        style="@style/editText"
+        android:background="@null"
+        android:hint="@string/hint_title_note"
+        android:minHeight="48dp"
+        android:textColor="@color/eerie_black"
+        android:textStyle="bold"
+        android:textSize="@dimen/app_large_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="LabelFor" />
 
-</FrameLayout>
+    <EditText
+        android:id="@+id/editTextNote"
+        style="@style/editText"
+        android:background="@null"
+        android:hint="@string/hint_text_note"
+        android:inputType="textMultiLine"
+        android:minHeight="48dp"
+        android:textColor="@color/eerie_black"
+        android:textSize="@dimen/app_standard_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editNameNote"
+        tools:ignore="LabelFor" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
