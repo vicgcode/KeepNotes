@@ -15,6 +15,6 @@ interface AppRoomDao {
     @Delete
     suspend fun delete(note: AppNote)
 
-    @Update
-    suspend fun update(note: AppNote)
+    @Query("UPDATE note_tables SET name=:name, text=:text WHERE id LIKE :id")
+    suspend fun update(name: String, text: String, id: Int)
 }

@@ -10,9 +10,9 @@ import kotlinx.coroutines.launch
 
 class EditFragmentViewModel(application: Application): AndroidViewModel(application) {
 
-    fun update(note: AppNote, onSuccess: () -> Unit) {
+    fun update(name: String, text: String, id: Int, onSuccess: () -> Unit) {
         viewModelScope.launch(Dispatchers.IO) {
-            REPOSITORY.update(note) {
+            REPOSITORY.update(name, text, id) {
                 viewModelScope.launch(Dispatchers.Main) {
                     onSuccess()
                 }
