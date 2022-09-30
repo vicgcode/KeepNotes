@@ -9,10 +9,7 @@
     <EditText
         android:id="@+id/editNameNote"
         style="@style/editText"
-        android:background="@null"
         android:hint="@string/hint_title_note"
-        android:minHeight="48dp"
-        android:textColor="@color/eerie_black"
         android:textStyle="bold"
         android:textSize="@dimen/app_large_text"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,11 +20,8 @@
     <EditText
         android:id="@+id/editTextNote"
         style="@style/editText"
-        android:background="@null"
         android:hint="@string/hint_text_note"
         android:inputType="textMultiLine"
-        android:minHeight="48dp"
-        android:textColor="@color/eerie_black"
         android:textSize="@dimen/app_standard_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

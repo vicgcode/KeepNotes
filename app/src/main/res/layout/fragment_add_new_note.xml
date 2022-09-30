@@ -9,28 +9,22 @@
     <EditText
         android:id="@+id/inputNameNote"
         style="@style/editText"
-        android:background="@null"
         android:hint="@string/hint_title_note"
-        android:minHeight="48dp"
-        android:textColor="@color/eerie_black"
-        android:textColorHint="@color/text_hint"
         android:textSize="@dimen/app_large_text"
         android:textStyle="bold"
+        android:textColorHint="@color/text_hint_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="LabelFor" />
+        tools:ignore="LabelFor,TextContrastCheck" />
 
     <EditText
         android:id="@+id/inputTextNote"
         style="@style/editText"
-        android:background="@null"
         android:hint="@string/hint_text_note"
         android:inputType="textMultiLine"
-        android:minHeight="48dp"
-        android:textColor="@color/eerie_black"
-        android:textColorHint="@color/text_hint"
         android:textSize="@dimen/app_standard_text"
+        android:textColorHint="@color/text_hint_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/inputNameNote"
