@@ -59,6 +59,7 @@
             app:destination="@id/noteFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_right"
-            app:launchSingleTop="true" />
+            app:launchSingleTop="true"
+            app:popUpTo="@id/mainFragment" />
     </fragment>
 </navigation>
