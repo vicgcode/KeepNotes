@@ -62,6 +62,7 @@ class AddNewNoteFragment : Fragment() {
     private fun initialization() {
         // initialize view model
         mViewModel = ViewModelProvider(this).get(AddNewNoteFragmentViewModel::class.java)
+        mBinding.inputTextNote.requestFocus()
     }
 
     private fun handleClickOfAddNewNote() {
@@ -69,7 +70,7 @@ class AddNewNoteFragment : Fragment() {
         val name = mBinding.inputNameNote.text.toString()
         val text = mBinding.inputTextNote.text.toString()
 
-        if (name.isEmpty()) {
+        if (text.isEmpty() && name.isEmpty()) {
             Toast.makeText(activity, getString(R.string.toast_message_empty_name_note), Toast.LENGTH_SHORT).show()
         } else {
             mViewModel.insert(AppNote(name = name, text = text)) {

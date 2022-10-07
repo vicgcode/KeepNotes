@@ -77,6 +77,7 @@ class EditNoteFragment : Fragment() {
         // fill textViews from current note
         mBinding.editNameNote.setText(mCurrentNote.name)
         mBinding.editTextNote.setText(mCurrentNote.text)
+        mBinding.editTextNote.requestFocus()
         mBinding.editTextNote.movementMethod = ScrollingMovementMethod()
         // initialize view model
         mViewModel = ViewModelProvider(this).get(EditFragmentViewModel::class.java)
