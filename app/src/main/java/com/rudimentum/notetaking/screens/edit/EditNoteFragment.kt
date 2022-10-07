@@ -68,8 +68,14 @@ class EditNoteFragment : Fragment() {
 
         val bundle = Bundle()
         bundle.putSerializable(R.string.bundle_key_note.toString(), AppNote(name = name, text = text))
-        mViewModel.update(name, text, mCurrentNote.id) {
-            findNavController().navigate(R.id.action_editNoteFragment_to_noteFragment, bundle)
+        if (text.isEmpty() && name.isEmpty()) {
+            mViewModel.delete(mCurrentNote) {
+                findNavController().navigate(R.id.action_editNoteFragment_to_mainFragment)
+            }
+        } else {
+            mViewModel.update(name, text, mCurrentNote.id) {
+                findNavController().navigate(R.id.action_editNoteFragment_to_noteFragment, bundle)
+            }
         }
     }
 

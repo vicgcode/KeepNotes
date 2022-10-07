@@ -19,4 +19,14 @@ class EditFragmentViewModel(application: Application): AndroidViewModel(applicat
             }
         }
     }
+
+    fun delete(note: AppNote, onSuccess: () -> Unit) {
+        viewModelScope.launch (Dispatchers.IO) {
+            REPOSITORY.delete(note) {
+                viewModelScope.launch (Dispatchers.Main) {
+                    onSuccess()
+                }
+            }
+        }
+    }
 }
