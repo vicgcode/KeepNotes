@@ -1,9 +1,9 @@
-
 *.iml
 .gradle
 /local.properties
 
 # IntelliJ .idea folder
+.idea
 .idea/workspace.xml
 .idea/misc.xml
 .idea/libraries
